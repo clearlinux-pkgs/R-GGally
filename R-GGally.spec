@@ -4,26 +4,35 @@
 #
 Name     : R-GGally
 Version  : 1.4.0
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/GGally_1.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/GGally_1.4.0.tar.gz
 Summary  : Extension to 'ggplot2'
 Group    : Development/Tools
 License  : GPL-2.0+
+Requires: R-RColorBrewer
+Requires: R-ggplot2
+Requires: R-gtable
+Requires: R-plyr
+Requires: R-progress
+Requires: R-reshape
+Requires: R-rlang
 BuildRequires : R-RColorBrewer
 BuildRequires : R-ggplot2
 BuildRequires : R-gtable
-BuildRequires : R-lazyeval
-BuildRequires : R-munsell
 BuildRequires : R-plyr
 BuildRequires : R-progress
 BuildRequires : R-reshape
-BuildRequires : R-scales
-BuildRequires : R-tibble
+BuildRequires : R-rlang
 BuildRequires : buildreq-R
 
 %description
-# [GGally](http://ggobi.github.io/ggally): Extension to [ggplot2](http://docs.ggplot2.org/current/)
+The R package 'ggplot2' is a plotting system based on the grammar of graphics.
+    'GGally' extends 'ggplot2' by adding several functions
+    to reduce the complexity of combining geometric objects with transformed data.
+    Some of these functions include a pairwise plot matrix, a two group pairwise plot
+    matrix, a parallel coordinates plot, a survival plot, and several functions to
+    plot networks.
 
 %prep
 %setup -q -c -n GGally
@@ -32,13 +41,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552897476
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569218902
 
 %install
-export SOURCE_DATE_EPOCH=1552897476
+export SOURCE_DATE_EPOCH=1569218902
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -67,12 +76,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  GGally || :
+R CMD check --no-manual --no-examples --no-codoc GGally || :
 
 
 %files
