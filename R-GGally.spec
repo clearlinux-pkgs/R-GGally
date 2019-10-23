@@ -4,7 +4,7 @@
 #
 Name     : R-GGally
 Version  : 1.4.0
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/GGally_1.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/GGally_1.4.0.tar.gz
 Summary  : Extension to 'ggplot2'
@@ -25,14 +25,10 @@ BuildRequires : R-progress
 BuildRequires : R-reshape
 BuildRequires : R-rlang
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-The R package 'ggplot2' is a plotting system based on the grammar of graphics.
-    'GGally' extends 'ggplot2' by adding several functions
-    to reduce the complexity of combining geometric objects with transformed data.
-    Some of these functions include a pairwise plot matrix, a two group pairwise plot
-    matrix, a parallel coordinates plot, a survival plot, and several functions to
-    plot networks.
+# [GGally](http://ggobi.github.io/ggally): Extension to [ggplot2](http://docs.ggplot2.org/current/)
 
 %prep
 %setup -q -c -n GGally
@@ -42,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569218902
+export SOURCE_DATE_EPOCH=1571837276
 
 %install
-export SOURCE_DATE_EPOCH=1569218902
+export SOURCE_DATE_EPOCH=1571837276
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
