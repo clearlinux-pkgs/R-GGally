@@ -4,7 +4,7 @@
 #
 Name     : R-GGally
 Version  : 1.4.0
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/GGally_1.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/GGally_1.4.0.tar.gz
 Summary  : Extension to 'ggplot2'
