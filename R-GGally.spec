@@ -4,7 +4,7 @@
 #
 Name     : R-GGally
 Version  : 1.5.0
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/GGally_1.5.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/GGally_1.5.0.tar.gz
 Summary  : Extension to 'ggplot2'
@@ -27,25 +27,31 @@ BuildRequires : R-rlang
 BuildRequires : buildreq-R
 
 %description
-# [GGally](http://ggobi.github.io/ggally): Extension to [ggplot2](https://ggplot2.tidyverse.org/)
+The R package 'ggplot2' is a plotting system based on the grammar of graphics.
+    'GGally' extends 'ggplot2' by adding several functions
+    to reduce the complexity of combining geometric objects with transformed data.
+    Some of these functions include a pairwise plot matrix, a two group pairwise plot
+    matrix, a parallel coordinates plot, a survival plot, and several functions to
+    plot networks.
 
 %prep
 %setup -q -c -n GGally
+cd %{_builddir}/GGally
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585268692
+export SOURCE_DATE_EPOCH=1589762058
 
 %install
-export SOURCE_DATE_EPOCH=1585268692
+export SOURCE_DATE_EPOCH=1589762058
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
