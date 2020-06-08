@@ -4,7 +4,7 @@
 #
 Name     : R-GGally
 Version  : 2.0.0
-Release  : 30
+Release  : 31
 URL      : https://cran.r-project.org/src/contrib/GGally_2.0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/GGally_2.0.0.tar.gz
 Summary  : Extension to 'ggplot2'
@@ -47,10 +47,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591628749
+export SOURCE_DATE_EPOCH=1591634962
 
 %install
-export SOURCE_DATE_EPOCH=1591628749
+export SOURCE_DATE_EPOCH=1591634962
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
